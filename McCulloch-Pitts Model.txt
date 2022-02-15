@@ -1,0 +1,58 @@
+# initializing list
+cubeVertices = [[-1,-1,-1], [-1,-1,1],[-1,1,-1], [-1,1,1], [1,-1,-1], [1,-1,1],[1,1,-1],[1,1,1]]
+# printing original list
+print("List of cube vertices: " + str(cubeVertices))
+print("**Implementation of McCulloch-Pitts Neuron Model**")
+print("NOR Gate:")
+
+firstThreshold=1
+secondThreshold=0
+inputWeight=1
+NorGate=-1
+firing=1
+notFiring=0
+outputList=[]
+
+for x in cubeVertices:
+    inputList=[]
+    for i in x:
+        productWithInputWeight=inputWeight*i
+        if(productWithInputWeight>=firstThreshold):
+            inputList.append(firing)
+        else:
+            inputList.append(notFiring)
+    sumOfAllInputs= sum(inputList)
+    productWithNorGate= sumOfAllInputs*NorGate
+    if(productWithNorGate>=secondThreshold):
+        outputList.append(firing)
+    else:
+        outputList.append(notFiring)
+print("OutputSignals->",outputList)
+
+print("NAND Gate:")
+
+firstThreshold=0
+secondThreshold=1
+inputWeight=-1
+NandGate=1
+firing=1
+notFiring=0
+outputList=[]
+
+for x in cubeVertices:
+    inputList=[]
+    for i in x:
+        productWithInputWeight=inputWeight*i
+        if(productWithInputWeight>=firstThreshold):
+            inputList.append(firing)
+        else:
+            inputList.append(notFiring)
+    sumOfAllInputs= sum(inputList)
+    productWithNorGate= sumOfAllInputs*NandGate
+    if(productWithNorGate>=secondThreshold):
+        outputList.append(firing)
+    else:
+        outputList.append(notFiring)
+print("OutputSignals->",outputList)
+
+
