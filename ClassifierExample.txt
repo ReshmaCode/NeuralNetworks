@@ -1,0 +1,25 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+
+# initializing list
+test_list = [[-1,-1,-1], [-1,-1,1],[-1,1,-1], [-1,1,1], [1,-1,-1], [1,-1,1],[1,1,-1],[1,1,1]]
+cat1 = []
+cat2= []
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+for x in test_list:
+    sum = 0
+    for i in x:
+        sum = sum + i
+    if(sum>0):
+       index = test_list.index(x)
+       s= "p"+str(index)
+       cat1.append(s)
+    else:
+        index = test_list.index(x)
+        t= "p"+str(index)
+        cat2.append(t)
+print("cat1=",cat1)
+print("cat2=",cat2)
