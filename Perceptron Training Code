@@ -1,0 +1,30 @@
+import numpy as np
+
+X = np.array([[-1,-1],[1,1],[1,-1],[-1,1]])
+y = np.array([1,1,-1,-1])
+
+def perceptron_sgd(X, Y):
+    w = np.zeros(len(X[0]))
+    print("Initial Weight w=",w)
+    eta = 1
+    epochs = 2
+
+    for t in range(epochs):
+        print("EPOCH CYCLE NUMBER:",t+1)
+        for i, x in enumerate(X):
+            sgn_function_output=0
+            y_cap=np.dot(X[i], w)*Y[i]
+            print("y cap:-",y_cap)
+            
+            if y_cap <= 0:
+                sgn_function_output=-1
+            else:
+                sgn_function_output=1
+                
+            w = w + eta*X[i]*(Y[i]-sgn_function_output)
+            print("Updated Weights:",w)
+        print("*********Complete Epoch Cycle", t+1,"**************")
+
+    return w
+
+w = perceptron_sgd(X,y)
